@@ -26,11 +26,13 @@ automation, and distributional design. Falsifiable 2035/2050 anchors, with disco
 conditions, are stated in-chapter.
 
 ## Core references (Rule of Eight)
-1. Acemoglu & Restrepo, *Demographics and Automation* (NBER w24421).
-2. ORF / K.S. James — India "old before rich".
-3. Representative China demographic-trap-via-AI source (nearest rival framing).
-4. HelpAge India — caregiver-deficit scale.
-5. World Bank / LASI — gendered unpaid-care displacement.
-6. IMF or ADB — aging + automation macro hedge.
-7. UN WPP / NSO India projections — demographic anchor.
-8. TCS, *Tech-driven Evolution of Elderly Care in India* — the consensus contested.
+1. Acemoglu, D., & Restrepo, P. (2022). Demographics and automation. *The Review of Economic Studies, 89*(1), 1–44. https://doi.org/10.1093/restud/rdab031
+2. United Nations Population Fund & International Institute for Population Sciences. (2023). *Caring for our elders: Institutional responses — India Ageing Report 2023*. UNFPA India. https://india.unfpa.org/sites/default/files/pub-pdf/20230926_india_ageing_report_2023_web_version_.pdf
+3. Du, K., Kou, Z., Liu, X., & Zhao, C. (2026). Population aging and robot adoption: Evidence from China. *Journal of Population Economics, 39*(1). https://doi.org/10.1007/s00148-026-01163-1
+4. HelpAge India. (2024). *Ageing in India: Exploring preparedness & response to care challenges*. Retrieved July 3, 2026, from https://www.helpageindia.org/documents/research/reports-journals/research-reports
+5. International Institute for Population Sciences, National Programme for Health Care of Elderly (MoHFW), Harvard T.H. Chan School of Public Health, & University of Southern California. (2020). *Longitudinal Ageing Study in India (LASI) Wave 1, 2017–18, India report*. IIPS. https://www.iipsindia.ac.in/sites/default/files/LASI_India_Report_2020_compressed.pdf
+6. Asian Development Bank. (2024). *Aging well in Asia: Asian Development Policy Report 2024*. https://doi.org/10.22617/SGP240253-3
+7. United Nations, Department of Economic and Social Affairs, Population Division. (2024). *World Population Prospects 2024: Summary of results* (UN DESA/POP/2024/TR/NO. 9). https://population.un.org/wpp/
+8. Tata Consultancy Services. (2026, May 19). *Tech-driven evolution of elderly care in India* [White paper]. https://www.tcs.com/what-we-do/research/white-paper/tech-driven-evolution-of-elderly-care-india
+
+*In-chapter supplementary (not core): CSIS ChinaPower, "Is China ready for intelligent automation?" (2018/2020) — the explicit policy articulation of the China rival framing.*
