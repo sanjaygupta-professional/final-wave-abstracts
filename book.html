@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Final Wave · Eight Futures of AI</title>
-<meta name="description" content="Eight chapter proposals for GenAI CollaBuc Book 3, The Final Wave: futures of artificial intelligence written carefully enough to be proven wrong.">
+<title>The Final Wave · Eleven Futures of AI</title>
+<meta name="description" content="Eleven chapter proposals for GenAI CollaBuc Book 3, The Final Wave: futures of artificial intelligence written carefully enough to be proven wrong.">
 <style>
 :root{
   --bg:#f5f4ed; --bg2:#faf9f5; --bg3:#e8e6dc; --border:#f0eee6; --border-warm:#e8e6dc;
@@ -82,7 +82,8 @@ a:hover{text-decoration:underline}
 
 /* references */
 details.refs{margin-top:30px;border-top:1px solid var(--border-warm);max-width:58ch}
-details.refs summary{cursor:pointer;padding:14px 0;font-size:13px;font-weight:600;color:var(--muted);list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.refs .srcnote{font-size:12px;color:var(--text3);font-style:italic;margin:8px 0 4px}
+.refs summary{cursor:pointer;padding:14px 0;font-size:13px;font-weight:600;color:var(--muted);list-style:none;display:flex;justify-content:space-between;align-items:center}
 details.refs summary::-webkit-details-marker{display:none}
 details.refs summary::after{content:"+";font-family:Georgia,serif;font-size:20px;color:var(--ch,#c96442)}
 details.refs[open] summary::after{content:"–"}
@@ -120,9 +121,9 @@ html.js .reveal.in{opacity:1;transform:none}
 <header class="cover">
   <p class="imprint">GenAI CollaBuc · Book 3 · Doctoral Cohort 8</p>
   <h1>The Final <em>Wave</em></h1>
-  <p class="sub">Eight futures of artificial intelligence, written before they arrive, and written carefully enough to be proven wrong.</p>
+  <p class="sub">Eleven futures of artificial intelligence, written before they arrive, and written carefully enough to be proven wrong.</p>
   <div class="meta">
-    <div><b>8 chapters</b>6 authors, one horizon: 2045</div>
+    <div><b>11 chapters</b>8 authors, one horizon: 2045</div>
     <div><b>Listen</b>each chapter narrated in the curator's voice</div>
     <div><b>Gate 1</b>abstracts, July 2026</div>
   </div>
@@ -152,6 +153,9 @@ html.js .reveal.in{opacity:1;transform:none}
     <li><a href="#ch6"><span class="n">VI</span><span class="t">The Algorithmic Commons</span><span class="dots"></span><span class="a">Vanamali</span></a></li>
     <li><a href="#ch7"><span class="n">VII</span><span class="t">Constitutional Evolution Beyond Human Governance</span><span class="dots"></span><span class="a">Rohit Bansal</span></a></li>
     <li><a href="#ch8"><span class="n">VIII</span><span class="t">The Invisible Ledger</span><span class="dots"></span><span class="a">Sonny Panesar &amp; Christopher Toh</span></a></li>
+      <li><a href="#ch9"><span class="n">IX</span><span class="t">The Silent Downgrade</span><span class="dots"></span><span class="a">Preet Sharma</span></a></li>
+      <li><a href="#ch10"><span class="n">X</span><span class="t">The Calibration Trust Gap</span><span class="dots"></span><span class="a">Preet Sharma</span></a></li>
+      <li><a href="#ch11"><span class="n">XI</span><span class="t">The Sovereignty Gap &mdash; agent-to-agent tourism</span><span class="dots"></span><span class="a">Dr. Joshua Boon-Wei Lau</span></a></li>
   </ol>
 </nav>
 
@@ -593,6 +597,186 @@ html.js .reveal.in{opacity:1;transform:none}
         </ol>
       </details>
     </div>
+  </div>
+</section>
+
+<!-- ============ CH 9 ============ -->
+<section class="chapter" id="ch9" style="--ch:#8a4f2f" aria-labelledby="h-ch9">
+  <span class="numeral" aria-hidden="true">IX</span>
+  <div class="folio">
+    <div class="reveal">
+      <p class="kicker"><b>Hosted-AI dependencies</b> &middot; capability continuity</p>
+      <h2 id="h-ch9">The Silent Downgrade</h2>
+      <p class="subtitle">When a vendor&rsquo;s &lsquo;improvement&rsquo; quietly removes the capability an organisation depends on</p>
+      <p class="byline">by <b>Preet Sharma</b> &middot; the missing contract of the hosted era</p>
+      <div class="prose">
+        <p>For most of computing history a dependency stayed where you put it. A pinned library behaved identically in five years&rsquo; time; the software beneath your product was a fixed foundation you chose when to disturb. Hosted AI dissolved that guarantee. The models now embedded in underwriting, clinical triage and legal drafting are revised continuously by their providers &mdash; behind an unchanged endpoint, often without a changelog, and never with a promise that the behaviour you built on survives the upgrade.</p>
+        <p>The industry narrative is one of relentless improvement, and in aggregate it is often true. But aggregate is the wrong altitude. A genuinely better model can regress on the one narrow capability a workflow cannot do without, and because the prior version is withdrawn, the deployer loses even the evidence needed to prove the loss. The chapter&rsquo;s move is to reframe this from a testing problem into a <i>missing contract</i>: capability continuity, underwritten by pinned behavioural baselines, per-capability service levels, and an enforceable right to the model you bought.</p>
+      </div>
+      <div class="badges"><span class="badge">Capability escrow &middot; behavioural warranty</span><span class="badge">Rule of Eight &middot; 8 references</span></div>
+      <div class="player" data-src="audio/09-silent-downgrade.mp3">
+        <button aria-label="Play chapter nine summary">&#9654;</button>
+        <div class="bar"><div class="fill"></div></div><time>0:00</time>
+      </div>
+      <p class="playnote">Audio summary &middot; narrated by the curator</p>
+      <details class="refs"><summary>References</summary>
+        <ol>
+          <li>Echterhoff, J., Faghri, F., Vemulapalli, R., et al. (2024). MUSCLE: A model update strategy for compatible LLM evolution. <i>Findings of the ACL: EMNLP 2024</i>. <a href="https://arxiv.org/abs/2407.09435">arXiv:2407.09435</a></li>
+          <li>Chishti, M. S., Oyinloye, D., &amp; Li, L. (2026). Test before you deploy: Governing updates in the LLM supply chain. <a href="https://arxiv.org/abs/2604.27789">arXiv:2604.27789</a></li>
+          <li>OWASP GenAI Security Project. (2025). <i>OWASP Top 10 for large language model applications</i>. <a href="https://genai.owasp.org/llm-top-10/">genai.owasp.org</a></li>
+          <li>Chen, L., Zaharia, M., &amp; Zou, J. (2023). How is ChatGPT&rsquo;s behavior changing over time? <a href="https://arxiv.org/abs/2307.09009">arXiv:2307.09009</a></li>
+          <li>Ma, W., Yang, C., &amp; K&auml;stner, C. (2024). (Why) Is my prompt getting worse? Rethinking regression testing for evolving LLM APIs. <a href="https://arxiv.org/abs/2311.11123">arXiv:2311.11123</a></li>
+          <li>National Institute of Standards and Technology. (2023). <i>Artificial intelligence risk management framework (AI RMF 1.0)</i>. <a href="https://doi.org/10.6028/NIST.AI.100-1">doi:10.6028/NIST.AI.100-1</a></li>
+          <li>Yan, S., Xiong, Y., Kundu, K., et al. (2021). Positive-congruent training: Towards regression-free model updates. <i>CVPR</i>, 14299&ndash;14308. <a href="https://arxiv.org/abs/2011.09161">arXiv:2011.09161</a></li>
+          <li>European Parliament &amp; Council. (2024). <i>Regulation (EU) 2024/1689 (Artificial Intelligence Act)</i>. <a href="http://data.europa.eu/eli/reg/2024/1689/oj">EUR-Lex</a></li>
+        </ol>
+      </details>
+    </div>
+    <figure class="fig reveal">
+      <svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: an aggregate benchmark curve rises across a model update while a single narrow capability collapses to zero at the same boundary, and the prior model that would prove the loss is withdrawn">
+        <line x1="44" y1="248" x2="352" y2="248" stroke="#87867f" stroke-width="1"/>
+        <line x1="44" y1="248" x2="44" y2="60" stroke="#87867f" stroke-width="1"/>
+        <line x1="206" y1="56" x2="206" y2="252" stroke="#141413" stroke-width="1" stroke-dasharray="3 3" opacity=".55"/>
+        <text x="212" y="70" font-family="system-ui" font-size="9" fill="#141413">the update</text>
+        <path d="M50,196 C100,186 150,176 206,166 C262,150 310,132 348,120" fill="none" stroke="#2a6b42" stroke-width="2"/>
+        <text x="238" y="112" font-family="system-ui" font-size="9" fill="#2a6b42">aggregate benchmark &uarr;</text>
+        <path d="M50,120 C110,116 160,114 206,112" fill="none" stroke="#8a4f2f" stroke-width="2.2"/>
+        <path d="M206,112 C216,150 222,204 226,236" fill="none" stroke="#b53333" stroke-width="2.2"/>
+        <path d="M226,236 C270,240 310,241 348,242" fill="none" stroke="#b53333" stroke-width="2.2" stroke-dasharray="4 3"/>
+        <circle cx="206" cy="112" r="3" fill="#8a4f2f"/>
+        <text x="50" y="106" font-family="system-ui" font-size="9" fill="#8a4f2f">the one capability you depend on</text>
+        <text x="238" y="230" font-family="system-ui" font-size="9" fill="#b53333">negative flip</text>
+        <g stroke="#87867f" stroke-width="1" stroke-dasharray="3 3" fill="none">
+          <rect x="52" y="140" width="88" height="44" rx="3"/>
+        </g>
+        <text x="58" y="158" font-family="system-ui" font-size="8.5" fill="#87867f">prior model</text>
+        <text x="58" y="170" font-family="system-ui" font-size="8.5" fill="#87867f">withdrawn</text>
+        <text x="58" y="180" font-family="Georgia" font-style="italic" font-size="8.5" fill="#87867f">&mdash; your evidence</text>
+        <text x="44" y="272" font-family="system-ui" font-size="9" fill="#87867f">everything improves &middot; except the thing you needed</text>
+        <text x="150" y="46" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">aggregate is the wrong altitude</text>
+      </svg>
+      <figcaption>An update that raises the aggregate score can zero the single narrow capability a workflow rests on &mdash; and retire the evidence of what was lost. Conceptual diagram.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ CH 10 ============ -->
+<section class="chapter alt flip" id="ch10" style="--ch:#3f6b62" aria-labelledby="h-ch10">
+  <span class="numeral" aria-hidden="true">X</span>
+  <div class="folio">
+    <div class="reveal">
+      <p class="kicker"><b>Quantum-as-a-service</b> &middot; assurance &amp; reliance</p>
+      <h2 id="h-ch10">The Calibration Trust Gap</h2>
+      <p class="subtitle">Governing reliance on a machine whose correctness drifts hourly, is graded by its vendor, and cannot be checked after the fact</p>
+      <p class="byline">by <b>Preet Sharma</b> &middot; horizon: the quantum-service era</p>
+      <div class="prose">
+        <p>Classical infrastructure earns trust quietly. A server that returns the right answer today returns it tomorrow, and when it fails we can usually tell. Quantum hardware breaks that contract at the most basic level: a processor&rsquo;s accuracy is not a fixed property but a moving target, set by delicate physical parameters that drift with temperature, ageing and noise on timescales of minutes to hours. To use such a machine is to depend on a correctness that is never still &mdash; and, in the cloud model now taking hold, on one that only the vendor can see.</p>
+        <p>Three facts define the gap, and each compounds the others. Calibration drifts, so results fail to reproduce from one hour to the next. The quality signal is self-reported, and the literature shows those device figures can understate true infidelity. And the result cannot be re-checked, because for the computations where quantum wins, verifying the answer would mean redoing it classically. The chapter lifts this from hardware problem to governance problem: independent fidelity attestation, per-run calibration provenance carried as a first-class audit artefact, and decision tiering that matches the trust a computation demands to the assurance it has actually earned.</p>
+      </div>
+      <div class="badges"><span class="badge">Attestation &middot; provenance &middot; decision tiering</span><span class="badge">Reference list in review</span></div>
+      <div class="player" data-src="audio/10-calibration-trust-gap.mp3">
+        <button aria-label="Play chapter ten summary">&#9654;</button>
+        <div class="bar"><div class="fill"></div></div><time>0:00</time>
+      </div>
+      <p class="playnote">Audio summary &middot; narrated by the curator</p>
+      <details class="refs"><summary>References</summary>
+        <ol><li>Reference list to follow with the draft chapter.</li></ol>
+      </details>
+    </div>
+    <figure class="fig reveal">
+      <svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: true qubit fidelity drifts downward over hours while the vendor's self-reported figure stays flat and optimistic, and the widening delta between them is the gap the user cannot audit">
+        <line x1="44" y1="238" x2="352" y2="238" stroke="#87867f" stroke-width="1"/>
+        <line x1="44" y1="238" x2="44" y2="60" stroke="#87867f" stroke-width="1"/>
+        <text x="44" y="258" font-family="system-ui" font-size="9" fill="#87867f">calibration</text>
+        <text x="300" y="258" font-family="system-ui" font-size="9" fill="#87867f">+ hours</text>
+        <text x="8" y="76" font-family="system-ui" font-size="9" fill="#87867f">fidelity</text>
+        <path d="M52,96 C130,94 240,93 348,92" fill="none" stroke="#2a6b42" stroke-width="2"/>
+        <text x="196" y="86" font-family="system-ui" font-size="9" fill="#2a6b42">vendor&rsquo;s self-reported figure</text>
+        <path d="M52,102 C110,126 150,150 200,166 C250,182 300,196 348,204" fill="none" stroke="#3f6b62" stroke-width="2.2"/>
+        <path d="M52,102 C110,126 150,150 200,166 C250,182 300,196 348,204 L348,92 C240,93 130,94 52,96 Z" fill="#b53333" opacity=".09" stroke="none"/>
+        <path d="M60,110 C118,136 158,158 208,174 C258,190 306,204 348,212" fill="none" stroke="#3f6b62" stroke-width=".8" opacity=".45" stroke-dasharray="3 3"/>
+        <path d="M46,96 C104,118 144,142 194,158 C244,174 294,188 344,196" fill="none" stroke="#3f6b62" stroke-width=".8" opacity=".45" stroke-dasharray="3 3"/>
+        <text x="196" y="224" font-family="system-ui" font-size="9" fill="#3f6b62">true fidelity, drifting</text>
+        <text x="112" y="126" font-family="system-ui" font-size="9.5" fill="#b53333">the gap you cannot audit</text>
+        <g stroke="#9a6520" stroke-width="1" stroke-dasharray="2 3">
+          <line x1="140" y1="60" x2="140" y2="238"/><line x1="248" y1="60" x2="248" y2="238"/>
+        </g>
+        <text x="144" y="72" font-family="system-ui" font-size="8" fill="#9a6520">recalibrate</text>
+        <text x="252" y="72" font-family="system-ui" font-size="8" fill="#9a6520">recalibrate</text>
+        <text x="20" y="284" font-family="Georgia" font-style="italic" font-size="10.5" fill="#141413">a number you cannot check, about a machine you cannot see</text>
+      </svg>
+      <figcaption>True fidelity drifts between recalibrations while the vendor&rsquo;s published figure holds flat; the shaded delta is what the user is structurally unable to verify. Conceptual diagram.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ CH 11 ============ -->
+<section class="chapter" id="ch11" style="--ch:#7d2f3f" aria-labelledby="h-ch11">
+  <span class="numeral" aria-hidden="true">XI</span>
+  <div class="folio">
+    <div class="reveal">
+      <p class="kicker"><b>Agent-to-agent ecosystems</b> &middot; post-human governance</p>
+      <h2 id="h-ch11">The Sovereignty Gap</h2>
+      <p class="subtitle">Architectural constraints for an agent-to-agent tourism ecosystem when no human sits at any transaction node</p>
+      <p class="byline">by <b>Dr. Joshua Boon-Wei Lau</b> &middot; the final wave of a tourism trilogy &middot; horizon: 2040&ndash;2055</p>
+      <div class="prose">
+        <p>Every harness architecture assumes, quietly but necessarily, one thing: a human who built the harness. The values were declared by a traveller; the checkpoints were stopped by a human choice; the circuit breakers were set by a regulator. Remove the human from each of those moments and the harness does not break &mdash; it floats. It becomes a technically precise, elegant piece of logic, and as such, untamed. This chapter asks what governance remains possible in an ecosystem where agents negotiate with agents across jurisdictions, in milliseconds, with no hand on the reins.</p>
+        <p>Its answer is the <b>Sovereignty Stack</b>, four layers each resting on the one below: cryptographic agent <i>identity</i>; an <i>authority</i> registry of machine-readable, revocable mandates; an <i>interaction</i> layer enforcing the Agents Rule of Two at protocol level, collapsing a quadratic governance surface to a linear one; and a cross-jurisdictional <i>settlement</i> layer built on the micro-treaty precedent of trade law. Three futures follow. The Governed Commons, aspirational. The Sovereignty Drift, cautionary. And the one Lau is least confident in and most obliged to name &mdash; the Protocol State, a lex mercatoria for autonomous commerce written not by lawyers but by gradient descent, and irreversible once it sets.</p>
+      </div>
+      <div class="badges"><span class="badge">Four-layer Sovereignty Stack</span><span class="badge">Three futures &middot; 2040&ndash;2055</span></div>
+      <div class="player" data-src="audio/11-sovereignty-gap.mp3">
+        <button aria-label="Play chapter eleven summary">&#9654;</button>
+        <div class="bar"><div class="fill"></div></div><time>0:00</time>
+      </div>
+      <p class="playnote">Audio summary &middot; narrated by the curator</p>
+      <details class="refs"><summary>References</summary>
+        <p class="srcnote">Sources are industry and preprint; peer-reviewed list to follow.</p>
+        <ol>
+          <li>Bristows. (2026). Spotlight on agentic AI: AI governance framework and oversight. <i>Inquisitive Minds</i>. <a href="https://inquisitiveminds.bristows.com/post/102n4zp/spotlight-on-agentic-ai-ai-governance-framework-and-oversight">inquisitiveminds.bristows.com</a></li>
+          <li>HTEK.dev. (2026). All agent harnesses: The live comparison. <a href="https://htek.dev/articles/all-agent-harnesses-live-comparison">htek.dev</a></li>
+          <li>Munder Difflin. (2026). The Agents Rule of Two. <a href="https://munderdiffl.in/blog/">munderdiffl.in</a></li>
+          <li>Meng, Wang, Chen, et al. (2026). Agent harness for large language model agents: A survey. <i>Preprints.org</i>. <a href="https://www.preprints.org/manuscript/202604.0428">doi:10.20944/preprints202604.0428</a></li>
+          <li>Kalia, S. (2026). AI autonomy governance: A framework for agentic AI. <i>TM Forum Inform</i>. <a href="https://inform.tmforum.org/features-and-opinion/ai-autonomy-governance-a-governance-framework-for-agentic-ai-enabling-safe-accountable-and-scalable-autonomous-intelligence">inform.tmforum.org</a></li>
+        </ol>
+      </details>
+    </div>
+    <figure class="fig reveal">
+      <svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: the four-layer Sovereignty Stack, from cryptographic identity at the base up through authority, interaction and settlement, with an inset showing a full mesh of agent negotiations collapsing into a sequential chain under the Agents Rule of Two">
+        <g font-family="system-ui">
+          <rect x="30" y="176" width="196" height="34" rx="3" fill="none" stroke="#7d2f3f" stroke-width="1.8"/>
+          <text x="40" y="190" font-size="9" font-weight="600" fill="#7d2f3f">I &middot; IDENTITY</text>
+          <text x="40" y="203" font-size="8" fill="#5e5d59">cryptographic agent identity</text>
+          <rect x="30" y="134" width="196" height="34" rx="3" fill="none" stroke="#7d2f3f" stroke-width="1.5" opacity=".85"/>
+          <text x="40" y="148" font-size="9" font-weight="600" fill="#7d2f3f">II &middot; AUTHORITY</text>
+          <text x="40" y="161" font-size="8" fill="#5e5d59">delegated mandate registry</text>
+          <rect x="30" y="92" width="196" height="34" rx="3" fill="none" stroke="#7d2f3f" stroke-width="1.3" opacity=".72"/>
+          <text x="40" y="106" font-size="9" font-weight="600" fill="#7d2f3f">III &middot; INTERACTION</text>
+          <text x="40" y="119" font-size="8" fill="#5e5d59">Rule of Two, at protocol level</text>
+          <rect x="30" y="50" width="196" height="34" rx="3" fill="none" stroke="#7d2f3f" stroke-width="1.1" opacity=".6"/>
+          <text x="40" y="64" font-size="9" font-weight="600" fill="#7d2f3f">IV &middot; SETTLEMENT</text>
+          <text x="40" y="77" font-size="8" fill="#5e5d59">cross-jurisdictional micro-treaty</text>
+        </g>
+        <g stroke="#9a6520" stroke-width="1">
+          <path d="M128,176 L128,168" marker-end=""/><path d="M128,134 L128,126"/><path d="M128,92 L128,84"/>
+        </g>
+        <text x="30" y="228" font-family="system-ui" font-size="8" fill="#87867f">each layer depends on the layer below</text>
+        <g stroke="#b53333" stroke-width=".9" fill="none">
+          <circle cx="262" cy="66" r="4"/><circle cx="330" cy="66" r="4"/><circle cx="262" cy="122" r="4"/><circle cx="330" cy="122" r="4"/>
+          <line x1="266" y1="66" x2="326" y2="66"/><line x1="266" y1="122" x2="326" y2="122"/>
+          <line x1="262" y1="70" x2="262" y2="118"/><line x1="330" y1="70" x2="330" y2="118"/>
+          <line x1="265" y1="69" x2="327" y2="119"/><line x1="327" y1="69" x2="265" y2="119"/>
+        </g>
+        <text x="252" y="140" font-family="system-ui" font-size="8" fill="#b53333">full mesh &middot; N&sup2;</text>
+        <text x="288" y="160" font-family="system-ui" font-size="12" fill="#87867f">&darr;</text>
+        <g stroke="#2a6b42" stroke-width="1.1" fill="none">
+          <circle cx="252" cy="188" r="4"/><circle cx="278" cy="188" r="4"/><circle cx="304" cy="188" r="4"/><circle cx="330" cy="188" r="4"/>
+          <line x1="256" y1="188" x2="274" y2="188"/><line x1="282" y1="188" x2="300" y2="188"/><line x1="308" y1="188" x2="326" y2="188"/>
+        </g>
+        <text x="246" y="208" font-family="system-ui" font-size="8" fill="#2a6b42">sequential dyadic &middot; N</text>
+        <text x="30" y="270" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">the harness does not break. it floats.</text>
+      </svg>
+      <figcaption>The Sovereignty Stack, with the Rule of Two collapsing the agent-to-agent interaction surface from quadratic to linear. Conceptual diagram.</figcaption>
+    </figure>
   </div>
 </section>
 
