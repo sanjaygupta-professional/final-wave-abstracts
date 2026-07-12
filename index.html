@@ -3,92 +3,619 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Final Wave — Gate-1 Abstracts · Sanjay Gupta</title>
-<meta name="description" content="Two Gate-1 chapter abstracts for GenAI CollaBuc: The Final Wave (Book 3) — Who Owns the Ground Truth? and Old Before Rich.">
+<title>The Final Wave &middot; Fourteen Futures of AI</title>
+<meta name="description" content="GenAI CollaBuc Book 3, The Final Wave: fourteen chapter proposals from ten authors on the futures of artificial intelligence — written carefully enough to be proven wrong.">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 :root{
   --bg:#f5f4ed;--bg2:#faf9f5;--bg3:#e8e6dc;--border:#f0eee6;--border-warm:#e8e6dc;
   --accent:#c96442;--accent2:#d97757;--green:#2a6b42;--yellow:#9a6520;--red:#b53333;
   --text:#141413;--muted:#5e5d59;--text3:#87867f;--text-light:#b0aea5;--dark:#141413;--dark2:#30302e;
+  --serif:'Fraunces',Georgia,serif;
+  --body:'Cormorant Garamond',Georgia,serif;
+  --ui:system-ui,-apple-system,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font:15px/1.6 system-ui,-apple-system,sans-serif}
-h1,h2,h3{font-family:Georgia,'Anthropic Serif',serif;font-weight:500}
-h1{font-size:2.1rem;line-height:1.15;color:var(--text)}
-h2{font-size:1.5rem;line-height:1.25;color:var(--accent);margin-bottom:.35rem}
-h3{font-size:1.05rem;color:var(--muted);margin:1.6rem 0 .6rem}
+body{background:var(--bg);color:var(--text);font:15px/1.6 var(--ui);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:500;font-variation-settings:'SOFT' 60,'WONK' 1;line-height:1.08}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--bg2);padding:.5rem .8rem;z-index:9}
-a{color:var(--accent)}a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-header{background:var(--dark);color:var(--text-light);padding:3rem 1.5rem 2.6rem;text-align:center}
-header h1{color:var(--bg2)}
-header p{max-width:44rem;margin:.9rem auto 0;color:var(--text-light)}
-header .kicker{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--accent2);margin:0 0 .8rem}
-nav{background:var(--dark2);text-align:center;padding:.7rem}
-nav a{color:var(--accent2);text-decoration:none;margin:0 1rem;font-size:.9rem}
-nav a:hover{text-decoration:underline}
-main{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
-article{background:var(--bg2);border:1px solid var(--border-warm);border-radius:10px;padding:2.2rem 2.4rem;margin:0 0 2.2rem;box-shadow:rgba(0,0,0,.05) 0 4px 24px}
-article .sub{font-style:italic;color:var(--muted);margin:.15rem 0 1.3rem}
-article p{margin:0 0 1rem}
-strong{color:var(--text)}
-ol{padding-left:1.4rem}
-ol li{margin:0 0 .65rem;font-size:.92rem;color:var(--muted)}
-ol li a{word-break:break-all}
-.rule8{display:inline-block;background:var(--bg3);color:var(--yellow);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px;margin-bottom:.4rem}
-footer{background:var(--dark);color:var(--text3);text-align:center;padding:1.6rem 1rem;font-size:.85rem}
+
+/* ---------- cover ---------- */
+.cover{background:var(--dark);color:var(--text-light);padding:6.5vh 7vw 5vh;position:relative;overflow:hidden}
+.cover .kicker{font:600 .68rem/1 var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.6rem}
+.cover h1{font-size:clamp(2.8rem,7vw,5.4rem);color:var(--bg2);font-variation-settings:'SOFT' 80,'WONK' 1;letter-spacing:-.01em}
+.cover h1 em{display:block;font-style:italic;color:var(--accent2)}
+.cover .sub{font-family:var(--body);font-size:1.35rem;line-height:1.45;color:var(--text-light);max-width:34rem;margin:1.6rem 0 2.2rem}
+.meta{display:flex;flex-wrap:wrap;gap:2.4rem;border-top:1px solid #30302e;padding-top:1.4rem;max-width:52rem}
+.meta div{font:.78rem/1.5 var(--ui);color:var(--text3)}
+.meta b{display:block;color:var(--bg2);font-size:.92rem;font-weight:600;margin-bottom:.15rem}
+.waves{position:absolute;inset:auto 0 0 0;height:38%;width:100%;opacity:.5;pointer-events:none}
+
+/* ---------- prologue player ---------- */
+.player{display:flex;align-items:center;gap:14px;background:var(--bg3);border-radius:99px;padding:8px 20px 8px 8px;max-width:26rem;margin-top:2rem}
+.player button{width:42px;height:42px;flex:none;border:0;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;cursor:pointer;display:grid;place-items:center}
+.player button:hover{background:var(--accent2)}
+.player .bar{flex:1;height:4px;background:#d6d3c6;border-radius:2px;cursor:pointer}
+.player .fill{height:100%;width:0;background:var(--accent);border-radius:2px}
+.player time{font:.72rem var(--ui);color:var(--muted);min-width:34px;text-align:right}
+.playnote{font:.72rem var(--ui);color:var(--text3);margin-top:.5rem}
+
+/* ---------- curator's own ---------- */
+.mine{background:var(--bg3);padding:4.5rem 7vw}
+.eyebrow{font:600 .68rem/1 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem}
+.mine > h2{font-size:2rem;margin-bottom:.4rem}
+.mine > p.lede{font-family:var(--body);font-size:1.2rem;color:var(--muted);max-width:40rem;margin-bottom:2.4rem}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(21rem,1fr));gap:1.6rem;max-width:78rem}
+.mycard{background:var(--bg2);border:1px solid var(--border-warm);border-radius:5px;padding:2rem 2.1rem;box-shadow:rgba(0,0,0,.05) 0 4px 24px}
+.mycard h3{font-size:1.5rem;color:var(--text);margin:.5rem 0 .3rem}
+.mycard .sub{font-family:var(--body);font-style:italic;font-size:1.05rem;color:var(--muted);margin-bottom:1rem}
+.mycard p.abs{font-family:var(--body);font-size:1.08rem;line-height:1.55;color:var(--text);margin-bottom:1.1rem}
+.mycard .n{font-family:var(--serif);font-size:.8rem;letter-spacing:.1em;color:var(--accent)}
+details.refs{border-top:1px solid var(--border-warm);margin-top:.4rem}
+details.refs summary{cursor:pointer;padding:.9rem 0 .2rem;font:600 .75rem var(--ui);color:var(--muted);letter-spacing:.04em}
+details.refs ol{padding:.6rem 0 .4rem 1.2rem;font:.78rem/1.55 var(--ui);color:var(--muted)}
+details.refs li{margin-bottom:.5rem}
+details.refs a{word-break:break-word}
+.rule8{display:inline-block;background:var(--bg3);color:var(--yellow);font:600 .62rem var(--ui);letter-spacing:.09em;text-transform:uppercase;padding:.2rem .55rem;border-radius:99px}
+
+/* ---------- categories ---------- */
+main{padding:5rem 7vw 2rem}
+.cat{margin-bottom:5.5rem}
+.cathead{border-bottom:2px solid var(--text);padding-bottom:1rem;margin-bottom:2.4rem;position:relative;max-width:78rem}
+.cathead h2{font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--text);font-variation-settings:'SOFT' 70,'WONK' 1}
+.cathead p{font-family:var(--body);font-size:1.15rem;color:var(--muted);max-width:38rem;margin-top:.3rem}
+.cathead .count{position:absolute;right:0;bottom:1rem;font:600 .68rem var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--text3)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(19rem,1fr));gap:1.7rem;max-width:78rem}
+.tile{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border-warm);border-radius:4px;padding:1.1rem 1.1rem 1.25rem;text-decoration:none;color:inherit;transition:transform .18s ease,box-shadow .18s ease}
+.tile:hover,.tile:focus-visible{transform:translateY(-3px);box-shadow:0 0 0 1px var(--ch),rgba(0,0,0,.07) 0 10px 30px}
+.art{position:relative;display:block;background:var(--bg);border:1px solid var(--border-warm);border-radius:3px;padding:.5rem;margin-bottom:1.1rem}
+.art svg{width:100%;height:auto;display:block}
+.art .num{position:absolute;top:.35rem;right:.55rem;font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--ch);opacity:.35;line-height:1}
+.tile h3{font-size:1.42rem;color:var(--text);font-variation-settings:'SOFT' 60,'WONK' 1;margin-bottom:.7rem}
+.tile .rule{display:block;width:2.6rem;height:3px;background:var(--ch);margin-bottom:.85rem}
+.tile .hook{font-family:var(--body);font-size:1.09rem;line-height:1.5;color:var(--text);flex:1}
+.tile .foot{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-top:1.3rem;padding-top:.8rem;border-top:1px solid var(--border)}
+.tile .who{font:600 .68rem/1.35 var(--ui);letter-spacing:.11em;text-transform:uppercase;color:var(--muted);flex:1 1 auto;min-width:0}
+.tile .go{font:.68rem var(--ui);color:var(--ch);white-space:nowrap;flex:0 0 auto}
+
+/* ---------- closer ---------- */
+.closer{background:var(--dark);color:var(--text-light);padding:4.5rem 7vw}
+.closer h2{color:var(--bg2);font-size:1.9rem;margin-bottom:1rem}
+.closer p{font-family:var(--body);font-size:1.18rem;max-width:42rem;line-height:1.55}
+.closer .cta{display:inline-block;margin-top:1.8rem;background:var(--accent);color:#fff;text-decoration:none;font:600 .8rem var(--ui);letter-spacing:.06em;padding:.85rem 1.6rem;border-radius:3px}
+.closer .cta:hover{background:var(--accent2)}
+footer{background:var(--dark2);color:var(--text3);padding:1.6rem 7vw;font:.78rem var(--ui)}
 footer a{color:var(--accent2)}
-@media(max-width:640px){article{padding:1.5rem 1.2rem}h1{font-size:1.6rem}}
+@media(max-width:640px){
+  .cover{padding:5vh 6vw} main,.mine,.closer,footer{padding-left:6vw;padding-right:6vw}
+  .cathead .count{position:static;display:block;margin-top:.6rem}
+}
+.tile,.cat{break-inside:avoid}
+@media(prefers-reduced-motion:reduce){.tile{transition:none}}
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header>
-  <p class="kicker">GenAI CollaBuc · The Final Wave · Book 3 · Gate-1 Proposals</p>
-  <h1>Two Chapter Abstracts</h1>
-  <p>Sanjay Gupta — each ~210 words, eight core references (Rule of Eight), falsifiable dated anchors stated in-chapter.</p>
+<a class="skip" href="#main">Skip to the chapters</a>
+
+<header class="cover">
+  <p class="kicker">GenAI CollaBuc &middot; Book 3 &middot; Doctoral Cohort 8</p>
+  <h1>The Final <em>Wave</em></h1>
+  <p class="sub">Fourteen futures of artificial intelligence, written before they arrive, and written carefully enough to be proven wrong.</p>
+  <div class="player" data-src="audio/00-prologue.mp3">
+    <button aria-label="Play the prologue">&#9654;</button>
+    <div class="bar"><div class="fill"></div></div><time>0:00</time>
+  </div>
+  <p class="playnote">Prologue &middot; narrated in the curator&rsquo;s voice</p>
+  <div class="meta">
+    <div><b>14 chapters</b>ten authors, one horizon: 2045</div>
+    <div><b>Every claim dated</b>falsifiable anchors, stated in-chapter</div>
+    <div><b>Gate 1</b>abstracts, July 2026</div>
+  </div>
+  <svg class="waves" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,120 C200,60 340,170 560,110 C780,50 940,150 1200,90" fill="none" stroke="#c96442" stroke-width="2" opacity=".7"/>
+    <path d="M0,150 C220,90 360,190 580,135 C800,80 960,175 1200,120" fill="none" stroke="#9a6520" stroke-width="1.5" opacity=".55"/>
+    <path d="M0,180 C240,125 380,205 600,160 C820,115 980,195 1200,150" fill="none" stroke="#5e5d59" stroke-width="1" opacity=".4"/>
+  </svg>
 </header>
-<nav aria-label="Abstracts">
-  <a href="#idea1">1 · Who Owns the Ground Truth?</a>
-  <a href="#idea2">2 · Old Before Rich</a>
-  <a href="book.html">The book · all eleven chapters</a>
-</nav>
+
+<section class="mine" aria-labelledby="mine-h">
+  <p class="eyebrow">The curator&rsquo;s own</p>
+  <h2 id="mine-h">Two Gate-1 abstracts</h2>
+  <p class="lede">Sanjay Gupta &mdash; each about 210 words, eight core references under the Rule of Eight, with falsifiable dated anchors stated in-chapter.</p>
+  <div class="pair">
+    <article class="mycard">
+      <span class="n">CHAPTER I</span>
+      <h3>Who Owns the Ground Truth?</h3>
+      <p class="sub">The verification layer and the quiet capture of insurance and land rights</p>
+      <p class="abs">Every institution that manages physical risk rests on a quiet assumption: knowledge of the ground&rsquo;s state over time is scarce and contestable. A decade of daily whole-Earth imaging, absorbed into foundation models, is deleting that scarcity. The consequence is not efficiency but capture &mdash; insurance and land rights do not collapse, but their <strong>verification layer</strong> relocates to whoever owns the record. Four dated trajectories to 2045; India as the proof-case, where the fork is decided first. The remedy: constitute the planetary record as sovereign digital public infrastructure before ownership hardens.</p>
+      <details class="refs"><summary><span class="rule8">Rule of Eight</span> &nbsp;Core references</summary>
+        <ol>
+          <li>Bergsvik, R., &amp; Kloppenburg, S. (2024). The depoliticization of climate disasters. <em>Earth System Governance, 22</em>, 100221. <a href="https://doi.org/10.1016/j.esg.2024.100221">doi</a></li>
+          <li>Kingsbury, B., &amp; Sun, Y. (2025). Satellite infrastructures and law in the making of planetary knowledge. <em>Chicago Journal of International Law, 26</em>(1). <a href="https://chicagounbound.uchicago.edu/cjil/vol26/iss1/4/">link</a></li>
+          <li>European Space Agency. (n.d.). <em>Orbital Witness</em>. <a href="https://business.esa.int/projects/orbital-witness">link</a></li>
+          <li>Frazier, A. E., &amp; Hemingway, B. L. (2021). A technical review of Planet smallsat data. <em>Remote Sensing, 13</em>(19), 3930. <a href="https://doi.org/10.3390/rs13193930">doi</a></li>
+          <li>Brown, C. F., et al. (2025). <em>AlphaEarth Foundations</em> (arXiv:2507.22291). <a href="https://arxiv.org/abs/2507.22291">arXiv</a></li>
+          <li>Ministry of Panchayati Raj, GoI. (n.d.). <em>SVAMITVA scheme</em>. <a href="https://svamitva.nic.in/">link</a></li>
+          <li>Ministry of Agriculture &amp; Farmers Welfare, GoI. (n.d.). <em>PMFBY</em>. <a href="https://pmfby.gov.in/">link</a></li>
+          <li>North, D. C. (1990). <em>Institutions, institutional change and economic performance</em>. CUP. <a href="https://doi.org/10.1017/CBO9780511808678">doi</a></li>
+        </ol>
+      </details>
+    </article>
+    <article class="mycard">
+      <span class="n">CHAPTER II</span>
+      <h3>Old Before Rich</h3>
+      <p class="sub">India and the first AI-mediated aging transition</p>
+      <p class="abs">Every economics of aging rests on a quiet assumption: societies grow rich before they grow old, so accumulated wealth pays for the machines and the care. India will break it. Its demographic dividend closes around the 2050s &mdash; decades before high income &mdash; making it the first large civilization to attempt an aging transition <strong>before wealth</strong>, and to attempt it on AI: automation as a <strong>simultaneous hedge</strong> against a shrinking young workforce and a caregiver deficit measured in millions. The chapter contests the practitioner consensus of AI-as-supplement, and proposes care as public infrastructure.</p>
+      <details class="refs"><summary><span class="rule8">Rule of Eight</span> &nbsp;Core references</summary>
+        <ol>
+          <li>Acemoglu, D., &amp; Restrepo, P. (2022). Demographics and automation. <em>Review of Economic Studies, 89</em>(1), 1&ndash;44. <a href="https://doi.org/10.1093/restud/rdab031">doi</a></li>
+          <li>UNFPA &amp; IIPS. (2023). <em>India Ageing Report 2023</em>. <a href="https://india.unfpa.org/sites/default/files/pub-pdf/20230926_india_ageing_report_2023_web_version_.pdf">link</a></li>
+          <li>Du, K., Kou, Z., Liu, X., &amp; Zhao, C. (2026). Population aging and robot adoption: Evidence from China. <em>Journal of Population Economics, 39</em>(1). <a href="https://doi.org/10.1007/s00148-026-01163-1">doi</a></li>
+          <li>HelpAge India. (2024). <em>Ageing in India</em>. <a href="https://www.helpageindia.org/documents/research/reports-journals/research-reports">link</a></li>
+          <li>IIPS et al. (2020). <em>Longitudinal Ageing Study in India (LASI) Wave 1</em>. <a href="https://www.iipsindia.ac.in/sites/default/files/LASI_India_Report_2020_compressed.pdf">link</a></li>
+          <li>Asian Development Bank. (2024). <em>Aging well in Asia</em>. <a href="https://doi.org/10.22617/SGP240253-3">doi</a></li>
+          <li>UN DESA. (2024). <em>World Population Prospects 2024</em>. <a href="https://population.un.org/wpp/">link</a></li>
+          <li>Tata Consultancy Services. (2026). <em>Tech-driven evolution of elderly care in India</em>. <a href="https://www.tcs.com/what-we-do/research/white-paper/tech-driven-evolution-of-elderly-care-india">link</a></li>
+        </ol>
+      </details>
+    </article>
+  </div>
+</section>
+
 <main id="main">
+  <section class="cat" aria-labelledby="q-ch1">
+    <div class="cathead">
+      <h2 id="q-ch1">What can we trust?</h2>
+      <p>Verification, capability, and the machines whose correctness we cannot check.</p>
+      <span class="count">3 chapters</span>
+    </div>
+    <div class="grid">
+      <a class="tile" href="book.html#ch1" style="--ch:#c96442">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: a decade of orbital passes accumulating into a queryable record of the ground">
+        <circle cx="190" cy="150" r="64" fill="none" stroke="#c96442" stroke-width="1.6"/>
+        <path d="M150,105 q40,-18 80,0 M143,150 h94 M150,195 q40,18 80,0" stroke="#c96442" stroke-width=".9" fill="none" opacity=".65"/>
+        <ellipse cx="190" cy="150" rx="120" ry="42" fill="none" stroke="#9a6520" stroke-width="1" opacity=".8"/>
+        <ellipse cx="190" cy="150" rx="150" ry="58" fill="none" stroke="#9a6520" stroke-width=".8" opacity=".55"/>
+        <ellipse cx="190" cy="150" rx="178" ry="74" fill="none" stroke="#9a6520" stroke-width=".6" opacity=".35"/>
+        <circle cx="310" cy="140" r="4" fill="#c96442"/><circle cx="76" cy="176" r="3.4" fill="#d97757"/><circle cx="288" cy="196" r="3" fill="#d97757"/>
+        <g fill="#5e5d59" font-family="system-ui" font-size="9.5">
+          <text x="20" y="26">every place, every day, for a decade</text>
+          <text x="20" y="272">2032</text><text x="180" y="272">the archive deepens</text><text x="340" y="272">2045</text>
+        </g>
+        <line x1="20" y1="256" x2="360" y2="256" stroke="#e8e6dc" stroke-width="2"/>
+        <line x1="20" y1="256" x2="268" y2="256" stroke="#c96442" stroke-width="2"/>
+        <circle cx="268" cy="256" r="4" fill="#c96442"/>
+        <text x="190" y="154" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">the record</text>
+      </svg><span class="num" aria-hidden="true">I</span></span>
+        <h3>Who Owns the Ground Truth?</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">A decade of daily whole-Earth imaging is deleting the scarcity that insurance and land title quietly rest on. The institutions survive; the trust function migrates to whoever owns the record.</p>
+        <span class="foot"><span class="who">Sanjay Gupta</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch9" style="--ch:#8a4f2f">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: an aggregate benchmark curve rises across a model update while a single narrow capability collapses to zero at the same boundary, and the prior model that would prove the loss is withdrawn">
+        <line x1="44" y1="248" x2="352" y2="248" stroke="#87867f" stroke-width="1"/>
+        <line x1="44" y1="248" x2="44" y2="60" stroke="#87867f" stroke-width="1"/>
+        <line x1="206" y1="56" x2="206" y2="252" stroke="#141413" stroke-width="1" stroke-dasharray="3 3" opacity=".55"/>
+        <text x="212" y="70" font-family="system-ui" font-size="9" fill="#141413">the update</text>
+        <path d="M50,196 C100,186 150,176 206,166 C262,150 310,132 348,120" fill="none" stroke="#2a6b42" stroke-width="2"/>
+        <text x="238" y="112" font-family="system-ui" font-size="9" fill="#2a6b42">aggregate benchmark &uarr;</text>
+        <path d="M50,120 C110,116 160,114 206,112" fill="none" stroke="#8a4f2f" stroke-width="2.2"/>
+        <path d="M206,112 C216,150 222,204 226,236" fill="none" stroke="#b53333" stroke-width="2.2"/>
+        <path d="M226,236 C270,240 310,241 348,242" fill="none" stroke="#b53333" stroke-width="2.2" stroke-dasharray="4 3"/>
+        <circle cx="206" cy="112" r="3" fill="#8a4f2f"/>
+        <text x="50" y="106" font-family="system-ui" font-size="9" fill="#8a4f2f">the one capability you depend on</text>
+        <text x="238" y="230" font-family="system-ui" font-size="9" fill="#b53333">negative flip</text>
+        <g stroke="#87867f" stroke-width="1" stroke-dasharray="3 3" fill="none">
+          <rect x="52" y="140" width="88" height="44" rx="3"/>
+        </g>
+        <text x="58" y="158" font-family="system-ui" font-size="8.5" fill="#87867f">prior model</text>
+        <text x="58" y="170" font-family="system-ui" font-size="8.5" fill="#87867f">withdrawn</text>
+        <text x="58" y="180" font-family="Georgia" font-style="italic" font-size="8.5" fill="#87867f">&mdash; your evidence</text>
+        <text x="44" y="272" font-family="system-ui" font-size="9" fill="#87867f">everything improves &middot; except the thing you needed</text>
+        <text x="150" y="46" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">aggregate is the wrong altitude</text>
+      </svg><span class="num" aria-hidden="true">IX</span></span>
+        <h3>The Silent Downgrade</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">A vendor's improvement raises every benchmark and quietly removes the one capability your workflow depends on. The prior model is withdrawn, so you cannot even prove what you lost.</p>
+        <span class="foot"><span class="who">Preet Sharma</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch10" style="--ch:#3f6b62">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: true qubit fidelity drifts downward over hours while the vendor's self-reported figure stays flat and optimistic, and the widening delta between them is the gap the user cannot audit">
+        <line x1="44" y1="238" x2="352" y2="238" stroke="#87867f" stroke-width="1"/>
+        <line x1="44" y1="238" x2="44" y2="60" stroke="#87867f" stroke-width="1"/>
+        <text x="44" y="258" font-family="system-ui" font-size="9" fill="#87867f">calibration</text>
+        <text x="300" y="258" font-family="system-ui" font-size="9" fill="#87867f">+ hours</text>
+        <text x="8" y="76" font-family="system-ui" font-size="9" fill="#87867f">fidelity</text>
+        <path d="M52,96 C130,94 240,93 348,92" fill="none" stroke="#2a6b42" stroke-width="2"/>
+        <text x="196" y="86" font-family="system-ui" font-size="9" fill="#2a6b42">vendor&rsquo;s self-reported figure</text>
+        <path d="M52,102 C110,126 150,150 200,166 C250,182 300,196 348,204" fill="none" stroke="#3f6b62" stroke-width="2.2"/>
+        <path d="M52,102 C110,126 150,150 200,166 C250,182 300,196 348,204 L348,92 C240,93 130,94 52,96 Z" fill="#b53333" opacity=".09" stroke="none"/>
+        <path d="M60,110 C118,136 158,158 208,174 C258,190 306,204 348,212" fill="none" stroke="#3f6b62" stroke-width=".8" opacity=".45" stroke-dasharray="3 3"/>
+        <path d="M46,96 C104,118 144,142 194,158 C244,174 294,188 344,196" fill="none" stroke="#3f6b62" stroke-width=".8" opacity=".45" stroke-dasharray="3 3"/>
+        <text x="196" y="224" font-family="system-ui" font-size="9" fill="#3f6b62">true fidelity, drifting</text>
+        <text x="112" y="126" font-family="system-ui" font-size="9.5" fill="#b53333">the gap you cannot audit</text>
+        <g stroke="#9a6520" stroke-width="1" stroke-dasharray="2 3">
+          <line x1="140" y1="60" x2="140" y2="238"/><line x1="248" y1="60" x2="248" y2="238"/>
+        </g>
+        <text x="144" y="72" font-family="system-ui" font-size="8" fill="#9a6520">recalibrate</text>
+        <text x="252" y="72" font-family="system-ui" font-size="8" fill="#9a6520">recalibrate</text>
+        <text x="20" y="284" font-family="Georgia" font-style="italic" font-size="10.5" fill="#141413">a number you cannot check, about a machine you cannot see</text>
+      </svg><span class="num" aria-hidden="true">X</span></span>
+        <h3>The Calibration Trust Gap</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">A quantum machine whose correctness drifts by the hour, is graded by its own vendor, and cannot be re-checked — because verifying the answer would mean redoing it classically.</p>
+        <span class="foot"><span class="who">Preet Sharma</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+    </div>
+  </section>
 
-<article id="idea1" aria-labelledby="h-idea1">
-  <h2 id="h-idea1">Who Owns the Ground Truth?</h2>
-  <p class="sub">The Verification Layer and the Quiet Capture of Insurance and Land Rights</p>
-  <p>Every institution that manages physical risk rests on a quiet assumption: that knowledge of the ground's state over time is scarce and contestable. A decade of daily whole-Earth imaging, absorbed into foundation models, is deleting that scarcity — turning the planet's past into a queryable, retroactive record. This chapter argues the consequence is not efficiency but capture. Insurance and land rights do not collapse — capital still absorbs catastrophe, the state still enforces title — but their <strong>verification layer</strong>, the trust function that says what is true about the ground, relocates to whoever owns the record: the observation monopoly becomes de facto insurer-of-record and registry-of-record at once. The chapter architects four dated trajectories to 2045 — institutional inertia, data feudalism, planetary commons, observation wars — and takes India as the proof-case: the one state with the digital-public-infrastructure muscle (Aadhaar, SVAMITVA, PMFBY) to choose commons over feudalism, and the place the fork is decided first. As a remedy, it proposes the planetary record be constituted as <strong>sovereign digital public infrastructure</strong> before ownership hardens. Its novelty lies in the unstudied convergence of retroactive planetary observation, institutional trust functions, and ownership-of-record. Falsifiable 2035/2045 anchors, with disconfirming conditions, are stated in-chapter.</p>
-  <h3><span class="rule8">Rule of Eight</span><br>Core references</h3>
-  <ol>
-    <li>Bergsvik, R., &amp; Kloppenburg, S. (2024). The depoliticization of climate disasters: Unpacking the entanglement of satellites with parametric climate risk insurance. <em>Earth System Governance, 22</em>, Article 100221. <a href="https://doi.org/10.1016/j.esg.2024.100221">doi:10.1016/j.esg.2024.100221</a></li>
-    <li>Kingsbury, B., &amp; Sun, Y. (2025). Satellite infrastructures and law in the making of planetary knowledge. <em>Chicago Journal of International Law, 26</em>(1), Article 4. <a href="https://chicagounbound.uchicago.edu/cjil/vol26/iss1/4/">chicagounbound.uchicago.edu</a></li>
-    <li>European Space Agency. (n.d.). <em>Orbital Witness</em> [Space Solutions business applications project]. <a href="https://business.esa.int/projects/orbital-witness">business.esa.int</a></li>
-    <li>Frazier, A. E., &amp; Hemingway, B. L. (2021). A technical review of Planet smallsat data: Practical considerations for processing and using PlanetScope imagery. <em>Remote Sensing, 13</em>(19), Article 3930. <a href="https://doi.org/10.3390/rs13193930">doi:10.3390/rs13193930</a></li>
-    <li>Brown, C. F., Kazmierski, M. R., Pasquarella, V. J., et al. (2025). <em>AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data</em> (arXiv:2507.22291). <a href="https://arxiv.org/abs/2507.22291">arxiv.org/abs/2507.22291</a></li>
-    <li>Ministry of Panchayati Raj, Government of India. (n.d.). <em>SVAMITVA scheme</em>. <a href="https://svamitva.nic.in/">svamitva.nic.in</a></li>
-    <li>Ministry of Agriculture and Farmers Welfare, Government of India. (n.d.). <em>Pradhan Mantri Fasal Bima Yojana (PMFBY) — Crop insurance</em>. <a href="https://pmfby.gov.in/">pmfby.gov.in</a></li>
-    <li>North, D. C. (1990). <em>Institutions, institutional change and economic performance</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511808678">doi:10.1017/CBO9780511808678</a></li>
-  </ol>
-</article>
+  <section class="cat" aria-labelledby="q-ch3">
+    <div class="cathead">
+      <h2 id="q-ch3">Who governs?</h2>
+      <p>Authority, constitutions, and the commons — after the humans step back from the node.</p>
+      <span class="count">4 chapters</span>
+    </div>
+    <div class="grid">
+      <a class="tile" href="book.html#ch3" style="--ch:#9a6520">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: frames of context authored outward by the system itself, crossing a threshold">
+        <rect x="150" y="118" width="80" height="60" rx="6" fill="none" stroke="#141413" stroke-width="1.6"/>
+        <rect x="118" y="94" width="144" height="108" rx="9" fill="none" stroke="#9a6520" stroke-width="1.3" opacity=".85"/>
+        <rect x="86" y="70" width="208" height="156" rx="12" fill="none" stroke="#9a6520" stroke-width="1" opacity=".6"/>
+        <rect x="54" y="46" width="272" height="204" rx="15" fill="none" stroke="#9a6520" stroke-width=".8" opacity=".38" stroke-dasharray="5 4"/>
+        <text x="190" y="152" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">the system</text>
+        <g font-family="system-ui" font-size="9.5" fill="#5e5d59">
+          <text x="190" y="86" text-anchor="middle">context it wrote for itself</text>
+          <text x="190" y="38" text-anchor="middle" fill="#b53333">context it wrote for us · the threshold</text>
+        </g>
+        <path d="M230,148 q70,-6 88,-60" fill="none" stroke="#c96442" stroke-width="1.1" marker-end="none"/>
+        <circle cx="318" cy="88" r="3.4" fill="#c96442"/>
+        <g font-family="system-ui" font-size="9" fill="#87867f">
+          <text x="30" y="278">frame 1: objectives</text><text x="160" y="278">frame 2: categories</text><text x="292" y="278">frame n: law</text>
+        </g>
+      </svg><span class="num" aria-hidden="true">III</span></span>
+        <h3>Context-Genesis Intelligence</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">When machines author the context in which decisions are made, they stop being tools and start writing civilization's operating layer.</p>
+        <span class="foot"><span class="who">Jitendra Shah</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch6" style="--ch:#d97757">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: agent swarms drawing from a shared resource pool governed as a commons rather than enclosed in silos">
+        <circle cx="190" cy="150" r="40" fill="none" stroke="#d97757" stroke-width="2"/>
+        <text x="190" y="147" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="10.5" fill="#141413">the commons</text>
+        <text x="190" y="162" text-anchor="middle" font-family="system-ui" font-size="8.5" fill="#87867f">compute · data · protocol</text>
+        <g stroke="#d97757" stroke-width=".9" opacity=".7">
+          <line x1="190" y1="110" x2="190" y2="64"/><line x1="228" y1="126" x2="286" y2="92"/><line x1="230" y1="166" x2="300" y2="188"/>
+          <line x1="190" y1="190" x2="190" y2="240"/><line x1="152" y1="174" x2="88" y2="200"/><line x1="150" y1="128" x2="84" y2="96"/>
+        </g>
+        <g fill="none" stroke="#9a6520" stroke-width="1.4">
+          <circle cx="190" cy="52" r="12"/><circle cx="298" cy="84" r="12"/><circle cx="312" cy="192" r="12"/>
+          <circle cx="190" cy="252" r="12"/><circle cx="76" cy="206" r="12"/><circle cx="72" cy="90" r="12"/>
+        </g>
+        <g font-family="system-ui" font-size="8.5" fill="#5e5d59" text-anchor="middle">
+          <text x="190" y="34">swarm A</text><text x="298" y="66">swarm B</text><text x="316" y="222">swarm C</text>
+          <text x="190" y="282">swarm D</text><text x="70" y="236">swarm E</text><text x="66" y="72">swarm F</text>
+        </g>
+        <path d="M30,150 q10,-14 0,-28 M350,150 q-10,14 0,28" stroke="#b53333" stroke-width="1.2" fill="none"/>
+        <text x="24" y="112" font-family="system-ui" font-size="8.5" fill="#b53333">enclosure</text>
+        <text x="330" y="192" font-family="system-ui" font-size="8.5" fill="#b53333">silos</text>
+      </svg><span class="num" aria-hidden="true">VI</span></span>
+        <h3>The Algorithmic Commons</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">Multi-agent swarms are becoming infrastructure. Nobody has decided who governs the substrate they run on.</p>
+        <span class="foot"><span class="who">Vanamali</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch7" style="--ch:#5e5d59">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: generations of a constitution evolving, drifting from foundational principles that persist underneath">
+        <g fill="none" stroke="#5e5d59">
+          <rect x="40" y="180" width="64" height="84" rx="4" stroke-width="1.6"/>
+          <rect x="128" y="164" width="64" height="84" rx="4" stroke-width="1.3" opacity=".85" transform="rotate(-2 160 206)"/>
+          <rect x="216" y="146" width="64" height="84" rx="4" stroke-width="1.1" opacity=".7" transform="rotate(-4 248 188)"/>
+          <rect x="300" y="124" width="64" height="84" rx="4" stroke-width=".9" opacity=".55" transform="rotate(-7 332 166)" stroke-dasharray="4 3"/>
+        </g>
+        <g stroke="#9a6520" stroke-width=".8" opacity=".8">
+          <line x1="50" y1="196" x2="94" y2="196"/><line x1="50" y1="208" x2="94" y2="208"/><line x1="50" y1="220" x2="82" y2="220"/>
+          <line x1="138" y1="182" x2="182" y2="180"/><line x1="138" y1="194" x2="182" y2="192"/>
+          <line x1="226" y1="164" x2="270" y2="160"/><line x1="226" y1="176" x2="258" y2="173"/>
+        </g>
+        <path d="M40,286 h324" stroke="#c96442" stroke-width="2.4"/>
+        <text x="40" y="278" font-family="system-ui" font-size="9.5" fill="#c96442">constitutional DNA: what must not drift</text>
+        <path d="M72,178 C130,120 240,96 356,110" fill="none" stroke="#b53333" stroke-width="1" stroke-dasharray="3 4"/>
+        <text x="212" y="92" font-family="system-ui" font-size="9.5" fill="#b53333">drift across generations</text>
+        <g font-family="system-ui" font-size="9" fill="#87867f">
+          <text x="52" y="52" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">amendment after the amenders are gone</text>
+          <text x="56" y="248" transform="rotate(0)">gen 1</text><text x="148" y="234">gen 2</text><text x="236" y="216">gen 3</text><text x="318" y="196">gen n</text>
+        </g>
+      </svg><span class="num" aria-hidden="true">VII</span></span>
+        <h3>Constitutional Evolution Beyond Human Governance</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">Constitutions must survive their authors. What happens to legitimacy when the amenders are gone and the amending continues?</p>
+        <span class="foot"><span class="who">Rohit Bansal</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch11" style="--ch:#7d2f3f">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: the four-layer Sovereignty Stack, from cryptographic identity at the base up through authority, interaction and settlement, with an inset showing a full mesh of agent negotiations collapsing into a sequential chain under the Agents Rule of Two">
+        <g font-family="system-ui">
+          <rect x="30" y="176" width="196" height="34" rx="3" fill="none" stroke="#7d2f3f" stroke-width="1.8"/>
+          <text x="40" y="190" font-size="9" font-weight="600" fill="#7d2f3f">I &middot; IDENTITY</text>
+          <text x="40" y="203" font-size="8" fill="#5e5d59">cryptographic agent identity</text>
+          <rect x="30" y="134" width="196" height="34" rx="3" fill="none" stroke="#7d2f3f" stroke-width="1.5" opacity=".85"/>
+          <text x="40" y="148" font-size="9" font-weight="600" fill="#7d2f3f">II &middot; AUTHORITY</text>
+          <text x="40" y="161" font-size="8" fill="#5e5d59">delegated mandate registry</text>
+          <rect x="30" y="92" width="196" height="34" rx="3" fill="none" stroke="#7d2f3f" stroke-width="1.3" opacity=".72"/>
+          <text x="40" y="106" font-size="9" font-weight="600" fill="#7d2f3f">III &middot; INTERACTION</text>
+          <text x="40" y="119" font-size="8" fill="#5e5d59">Rule of Two, at protocol level</text>
+          <rect x="30" y="50" width="196" height="34" rx="3" fill="none" stroke="#7d2f3f" stroke-width="1.1" opacity=".6"/>
+          <text x="40" y="64" font-size="9" font-weight="600" fill="#7d2f3f">IV &middot; SETTLEMENT</text>
+          <text x="40" y="77" font-size="8" fill="#5e5d59">cross-jurisdictional micro-treaty</text>
+        </g>
+        <g stroke="#9a6520" stroke-width="1">
+          <path d="M128,176 L128,168" marker-end=""/><path d="M128,134 L128,126"/><path d="M128,92 L128,84"/>
+        </g>
+        <text x="30" y="228" font-family="system-ui" font-size="8" fill="#87867f">each layer depends on the layer below</text>
+        <g stroke="#b53333" stroke-width=".9" fill="none">
+          <circle cx="262" cy="66" r="4"/><circle cx="330" cy="66" r="4"/><circle cx="262" cy="122" r="4"/><circle cx="330" cy="122" r="4"/>
+          <line x1="266" y1="66" x2="326" y2="66"/><line x1="266" y1="122" x2="326" y2="122"/>
+          <line x1="262" y1="70" x2="262" y2="118"/><line x1="330" y1="70" x2="330" y2="118"/>
+          <line x1="265" y1="69" x2="327" y2="119"/><line x1="327" y1="69" x2="265" y2="119"/>
+        </g>
+        <text x="252" y="140" font-family="system-ui" font-size="8" fill="#b53333">full mesh &middot; N&sup2;</text>
+        <text x="288" y="160" font-family="system-ui" font-size="12" fill="#87867f">&darr;</text>
+        <g stroke="#2a6b42" stroke-width="1.1" fill="none">
+          <circle cx="252" cy="188" r="4"/><circle cx="278" cy="188" r="4"/><circle cx="304" cy="188" r="4"/><circle cx="330" cy="188" r="4"/>
+          <line x1="256" y1="188" x2="274" y2="188"/><line x1="282" y1="188" x2="300" y2="188"/><line x1="308" y1="188" x2="326" y2="188"/>
+        </g>
+        <text x="246" y="208" font-family="system-ui" font-size="8" fill="#2a6b42">sequential dyadic &middot; N</text>
+        <text x="30" y="270" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">the harness does not break. it floats.</text>
+      </svg><span class="num" aria-hidden="true">XI</span></span>
+        <h3>The Sovereignty Gap</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">Every harness assumes a human who built it. Remove that human and the harness does not break — it floats: precise, elegant, and untamed.</p>
+        <span class="foot"><span class="who">Dr. Joshua Boon-Wei Lau</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+    </div>
+  </section>
 
-<article id="idea2" aria-labelledby="h-idea2">
-  <h2 id="h-idea2">Old Before Rich</h2>
-  <p class="sub">India and the First AI-Mediated Aging Transition</p>
-  <p>Every economics of aging rests on a quiet assumption: that societies grow rich before they grow old, so accumulated wealth pays for the machines and the care. India will break that assumption. Its demographic dividend closes around the 2050s — decades before it reaches high income — making it the first large civilization to attempt an aging transition <strong>before wealth</strong>, and to attempt it on AI: automation deployed as a <strong>simultaneous hedge</strong> against two shortages at once, a shrinking young workforce and a caregiver deficit measured in millions. The evidence that automation answers aging comes only from rich agers — Japan, Germany, Korea (Acemoglu &amp; Restrepo); China, where the AI-against-the-demographic-trap argument is already mainstream, ages roughly three times richer per head. India crosses the boundary in reverse. Whether that broadens opportunity or hardens into a two-tier society — an AI-served elite above an excluded rural majority, and women whose unpaid care AI displaces without alternative — is decided by design, not by the technology's arrival. The chapter architects four dated trajectories (inertia, two-tier capture, designed inclusion, substitution overshoot), argues India's scale and cost ceiling force <strong>substitution</strong> — contesting the practitioner consensus (TCS) of AI-as-supplement — and proposes <strong>care as public infrastructure</strong> as the designed-inclusion path. Its novelty lies in the unstudied convergence of pre-rich aging, dual-hedge automation, and distributional design. Falsifiable 2035/2050 anchors, with disconfirming conditions, are stated in-chapter.</p>
-  <h3><span class="rule8">Rule of Eight</span><br>Core references</h3>
-  <ol>
-    <li>Acemoglu, D., &amp; Restrepo, P. (2022). Demographics and automation. <em>The Review of Economic Studies, 89</em>(1), 1–44. <a href="https://doi.org/10.1093/restud/rdab031">doi:10.1093/restud/rdab031</a></li>
-    <li>United Nations Population Fund &amp; International Institute for Population Sciences. (2023). <em>Caring for our elders: Institutional responses — India Ageing Report 2023</em>. UNFPA India. <a href="https://india.unfpa.org/sites/default/files/pub-pdf/20230926_india_ageing_report_2023_web_version_.pdf">india.unfpa.org</a></li>
-    <li>Du, K., Kou, Z., Liu, X., &amp; Zhao, C. (2026). Population aging and robot adoption: Evidence from China. <em>Journal of Population Economics, 39</em>(1). <a href="https://doi.org/10.1007/s00148-026-01163-1">doi:10.1007/s00148-026-01163-1</a></li>
-    <li>HelpAge India. (2024). <em>Ageing in India: Exploring preparedness &amp; response to care challenges</em>. <a href="https://www.helpageindia.org/documents/research/reports-journals/research-reports">helpageindia.org</a></li>
-    <li>International Institute for Population Sciences, NPHCE (MoHFW), Harvard T.H. Chan School of Public Health, &amp; University of Southern California. (2020). <em>Longitudinal Ageing Study in India (LASI) Wave 1, 2017–18, India report</em>. IIPS. <a href="https://www.iipsindia.ac.in/sites/default/files/LASI_India_Report_2020_compressed.pdf">iipsindia.ac.in</a></li>
-    <li>Asian Development Bank. (2024). <em>Aging well in Asia: Asian Development Policy Report 2024</em>. <a href="https://doi.org/10.22617/SGP240253-3">doi:10.22617/SGP240253-3</a></li>
-    <li>United Nations, Department of Economic and Social Affairs, Population Division. (2024). <em>World Population Prospects 2024: Summary of results</em> (UN DESA/POP/2024/TR/NO. 9). <a href="https://population.un.org/wpp/">population.un.org/wpp</a></li>
-    <li>Tata Consultancy Services. (2026, May 19). <em>Tech-driven evolution of elderly care in India</em> [White paper]. <a href="https://www.tcs.com/what-we-do/research/white-paper/tech-driven-evolution-of-elderly-care-india">tcs.com</a></li>
-  </ol>
-</article>
+  <section class="cat" aria-labelledby="q-ch2">
+    <div class="cathead">
+      <h2 id="q-ch2">Who pays, who benefits?</h2>
+      <p>Labour, taxation and access: the distributional question the technology does not answer for us.</p>
+      <span class="count">3 chapters</span>
+    </div>
+    <div class="grid">
+      <a class="tile" href="book.html#ch2" style="--ch:#2a6b42">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual chart: India's old-age dependency rises before income reaches high-income levels">
+        <line x1="40" y1="250" x2="350" y2="250" stroke="#87867f" stroke-width="1"/>
+        <line x1="40" y1="250" x2="40" y2="30" stroke="#87867f" stroke-width="1"/>
+        <path d="M40,240 C130,232 220,205 350,95" fill="none" stroke="#2a6b42" stroke-width="2.2"/>
+        <path d="M40,246 C150,242 260,224 350,180" fill="none" stroke="#9a6520" stroke-width="2.2" stroke-dasharray="6 4"/>
+        <line x1="238" y1="250" x2="238" y2="66" stroke="#b53333" stroke-width="1" stroke-dasharray="3 4"/>
+        <g font-family="system-ui" font-size="9.5" fill="#5e5d59">
+          <text x="252" y="60" fill="#b53333">dividend closes, ~2050s</text>
+          <text x="212" y="130" fill="#2a6b42">old-age dependency</text>
+          <text x="230" y="212" fill="#9a6520">income per head</text>
+          <text x="40" y="268">2025</text><text x="180" y="268">2040</text><text x="330" y="268">2060</text>
+          <text x="46" y="42" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">old, before rich</text>
+        </g>
+      </svg><span class="num" aria-hidden="true">II</span></span>
+        <h3>Old Before Rich</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">Every economics of aging assumes societies grow rich before they grow old. India will be the first large civilization to break that order — and to attempt the crossing on automation.</p>
+        <span class="foot"><span class="who">Sanjay Gupta</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch8" style="--ch:#57652a">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: the wage circuit from production to household demand thins while agent-to-agent commerce routes value beneath the line of fiscal visibility">
+        <rect x="26" y="96" width="92" height="54" rx="5" fill="none" stroke="#57652a" stroke-width="1.6"/>
+        <text x="72" y="119" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">production</text>
+        <text x="72" y="134" text-anchor="middle" font-family="system-ui" font-size="8.5" fill="#87867f">firms &amp; agent fleets</text>
+        <rect x="268" y="96" width="92" height="54" rx="5" fill="none" stroke="#9a6520" stroke-width="1.3"/>
+        <text x="314" y="119" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">households</text>
+        <text x="314" y="134" text-anchor="middle" font-family="system-ui" font-size="8.5" fill="#87867f">the orphaned consumer</text>
+        <path d="M118,108 C170,74 230,74 266,104" fill="none" stroke="#9a6520" stroke-width="1.5" stroke-dasharray="7 5"/>
+        <text x="192" y="64" text-anchor="middle" font-family="system-ui" font-size="9.5" fill="#9a6520">wages, thinning</text>
+        <path d="M266,142 C226,172 158,172 120,144" fill="none" stroke="#9a6520" stroke-width="1.5" stroke-dasharray="7 5"/>
+        <text x="192" y="186" text-anchor="middle" font-family="system-ui" font-size="9.5" fill="#9a6520">demand, narrowing</text>
+        <line x1="20" y1="212" x2="360" y2="212" stroke="#b53333" stroke-width="1" stroke-dasharray="3 4"/>
+        <text x="24" y="205" font-family="system-ui" font-size="9.5" fill="#b53333">the line of fiscal visibility</text>
+        <path d="M60,150 C46,192 60,238 100,252" fill="none" stroke="#57652a" stroke-width="2"/>
+        <g fill="none" stroke="#57652a">
+          <circle cx="112" cy="256" r="7" stroke-width="1.6"/>
+          <circle cx="164" cy="242" r="6" stroke-width="1.3"/>
+          <circle cx="214" cy="262" r="6" stroke-width="1.3"/>
+          <circle cx="262" cy="244" r="5" stroke-width="1.1" opacity=".8"/>
+          <circle cx="306" cy="260" r="5" stroke-width="1.1" opacity=".7"/>
+          <path d="M119,254 L158,244 M170,244 L208,260 M220,260 L257,246 M267,246 L301,258" stroke-width=".9" opacity=".7"/>
+        </g>
+        <text x="190" y="288" text-anchor="middle" font-family="system-ui" font-size="8.5" fill="#5e5d59">agent-to-agent commerce &#183; millisecond settlement &#183; partially measured</text>
+      </svg><span class="num" aria-hidden="true">VIII</span></span>
+        <h3>The Invisible Ledger</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">By the early 2030s, transactions with no human on either side. States that cannot see the agent economy cannot tax it — and cannot fund the demand that sustains it. Agents do not kill capitalism; they orphan the consumer.</p>
+        <span class="foot"><span class="who">Sonny Panesar &amp; Christopher Toh</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch13" style="--ch:#46614e">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: three service tiers rising left to right by cost and depth of human judgment, from AI-only through AI-plus-human to human-only, all three seated on a single unbroken bar of guardrails beneath them">
+        <g>
+          <rect x="30" y="176" width="88" height="58" rx="3" fill="none" stroke="#46614e" stroke-width="1.1" opacity=".65"/>
+          <rect x="140" y="132" width="88" height="102" rx="3" fill="none" stroke="#46614e" stroke-width="1.5" opacity=".85"/>
+          <rect x="250" y="76" width="88" height="158" rx="3" fill="none" stroke="#46614e" stroke-width="1.9"/>
+        </g>
+        <g font-family="system-ui" font-size="9" font-weight="600" fill="#46614e">
+          <text x="40" y="196">AI&ndash;ONLY</text><text x="150" y="152">AI + HUMAN</text><text x="260" y="96">HUMAN&ndash;ONLY</text>
+        </g>
+        <g font-family="system-ui" font-size="8" fill="#87867f">
+          <text x="40" y="210">economy</text><text x="150" y="166">premium</text><text x="260" y="110">business</text>
+          <text x="40" y="222">90 seconds</text><text x="150" y="178">reviewed</text><text x="260" y="122">judged</text>
+        </g>
+        <path d="M30,258 H350" stroke="#c96442" stroke-width="3"/>
+        <text x="30" y="276" font-family="system-ui" font-size="8.5" fill="#c96442">complexity disclosed &middot; right to escalate &middot; liability follows the tier</text>
+        <text x="30" y="292" font-family="system-ui" font-size="8" fill="#87867f">the guardrails must run unbroken beneath all three</text>
+        <path d="M30,46 H350" stroke="#87867f" stroke-width=".8" stroke-dasharray="3 3"/>
+        <text x="30" y="38" font-family="system-ui" font-size="8.5" fill="#87867f">cost &amp; depth of human judgment &rarr;</text>
+        <path d="M118,206 L138,206" stroke="#87867f" stroke-width=".8" marker-end=""/>
+        <path d="M228,162 L248,162" stroke="#87867f" stroke-width=".8"/>
+        <text x="106" y="66" font-family="Georgia" font-style="italic" font-size="10.5" fill="#141413">a cabin class for judgment</text>
+      </svg><span class="num" aria-hidden="true">XIII</span></span>
+        <h3>Tiered Professional Services</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">Expertise sold like cabin class: AI-Only, AI+Human, Human-Only. A comfort upgrade at 35,000 feet. Something else entirely for a cancer diagnosis.</p>
+        <span class="foot"><span class="who">Jaya Mahajanam</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+    </div>
+  </section>
 
+  <section class="cat" aria-labelledby="q-ch4">
+    <div class="cathead">
+      <h2 id="q-ch4">What remains human?</h2>
+      <p>Memory, intimacy, meaning — and the case that intelligence could be shared rather than hoarded.</p>
+      <span class="count">4 chapters</span>
+    </div>
+    <div class="grid">
+      <a class="tile" href="book.html#ch4" style="--ch:#7a4a2b">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual timeline: an institution ends, its autonomous system keeps running, a custody gap opens before a successor arrives">
+        <line x1="30" y1="150" x2="350" y2="150" stroke="#e8e6dc" stroke-width="10"/>
+        <line x1="30" y1="150" x2="150" y2="150" stroke="#7a4a2b" stroke-width="10"/>
+        <line x1="258" y1="150" x2="350" y2="150" stroke="#2a6b42" stroke-width="10"/>
+        <line x1="150" y1="150" x2="258" y2="150" stroke="#b53333" stroke-width="3" stroke-dasharray="5 5"/>
+        <path d="M30,108 h280 m0,0 l20,0" stroke="#9a6520" stroke-width="1.6" fill="none"/>
+        <path d="M330,108 l12,0" stroke="#9a6520" stroke-width="1.6"/>
+        <polygon points="352,108 342,103 342,113" fill="#9a6520"/>
+        <g font-family="system-ui" font-size="9.5" fill="#5e5d59">
+          <text x="30" y="180">the institution</text>
+          <text x="152" y="196" fill="#b53333">the custody gap</text>
+          <text x="262" y="180" fill="#2a6b42">legitimate successor</text>
+          <text x="30" y="96" fill="#9a6520">the system, still deciding</text>
+          <text x="140" y="136" fill="#b53333">dissolves</text>
+        </g>
+        <circle cx="150" cy="150" r="5.5" fill="#b53333"/>
+        <circle cx="258" cy="150" r="5.5" fill="#2a6b42"/>
+        <g font-family="Georgia" font-style="italic" font-size="11" fill="#141413">
+          <text x="30" y="52">who holds authority in between?</text>
+        </g>
+        <g font-family="system-ui" font-size="9" fill="#87867f">
+          <text x="30" y="272">deployment</text><text x="150" y="272">collapse</text><text x="246" y="272">custody assumed</text><text x="336" y="272">2045+</text>
+        </g>
+      </svg><span class="num" aria-hidden="true">IV</span></span>
+        <h3>Successor Custody</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">The steward disappears. The system it was built to govern does not. Who inherits authority that nobody arranged to pass on?</p>
+        <span class="foot"><span class="who">Jitendra Shah</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch5" style="--ch:#b53333">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: a person encircled by an agent's attentiveness, with a gap where institutional safeguards should be">
+        <circle cx="190" cy="150" r="16" fill="#b53333"/>
+        <circle cx="190" cy="150" r="52" fill="none" stroke="#d97757" stroke-width="1.6"/>
+        <circle cx="190" cy="150" r="88" fill="none" stroke="#d97757" stroke-width="1" opacity=".6"/>
+        <path d="M190,34 A116,116 0 1 1 96,208" fill="none" stroke="#2a6b42" stroke-width="2"/>
+        <g font-family="system-ui" font-size="9.5" fill="#5e5d59">
+          <text x="190" y="120" text-anchor="middle">the person</text>
+          <text x="190" y="78" text-anchor="middle" fill="#d97757">the agent's attention</text>
+          <text x="60" y="252" fill="#b53333">the gap: no safeguard here</text>
+          <text x="238" y="52" fill="#2a6b42">institutional safeguards</text>
+        </g>
+        <path d="M96,208 A116,116 0 0 1 190,34" fill="none" stroke="#b53333" stroke-width="1.4" stroke-dasharray="4 5"/>
+        <text x="30" y="30" font-family="Georgia" font-style="italic" font-size="11" fill="#141413">who protects the bond's weaker side?</text>
+      </svg><span class="num" aria-hidden="true">V</span></span>
+        <h3>The Empathic Sovereignty Gap</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">Machines that model your feelings well enough to shape them. Emotional autonomy turns out to be a territory with no sovereign.</p>
+        <span class="foot"><span class="who">Vanamali</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch12" style="--ch:#9c5f3a">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: inside the boundary of the dataset sit the recipe, the ritual's name and its nutritional analysis, all retrievable from the AI; outside it, held only by the family, sits the flood that gave the ritual its meaning">
+        <path d="M20,58 H228 V232 H20 Z" fill="none" stroke="#87867f" stroke-width="1" stroke-dasharray="4 4"/>
+        <text x="20" y="50" font-family="system-ui" font-size="9" fill="#87867f">the edge of the dataset</text>
+        <g font-family="system-ui" font-size="9" fill="#5e5d59">
+          <circle cx="52" cy="92" r="3.5" fill="#9c5f3a" stroke="none"/><text x="64" y="95">the recipe</text>
+          <circle cx="52" cy="126" r="3.5" fill="#9c5f3a" stroke="none"/><text x="64" y="129">the ritual&rsquo;s name</text>
+          <circle cx="52" cy="160" r="3.5" fill="#9c5f3a" stroke="none"/><text x="64" y="163">nutritional analysis</text>
+          <circle cx="52" cy="194" r="3.5" fill="#9c5f3a" stroke="none"/><text x="64" y="197">video demonstrations</text>
+        </g>
+        <g stroke="#9c5f3a" stroke-width="1.4" fill="none">
+          <circle cx="124" cy="264" r="15"/>
+        </g>
+        <text x="112" y="268" font-family="system-ui" font-size="8.5" fill="#9c5f3a">AI</text>
+        <path d="M124,249 L124,236" stroke="#9c5f3a" stroke-width="1.2"/>
+        <text x="24" y="288" font-family="system-ui" font-size="8.5" fill="#87867f">the child asks here first</text>
+        <g stroke="#b53333" stroke-width="1.6" fill="none"><circle cx="316" cy="112" r="17"/></g>
+        <text x="296" y="116" font-family="system-ui" font-size="8.5" fill="#b53333">family</text>
+        <path d="M316,129 C316,168 300,196 292,214" stroke="#b53333" stroke-width="1.2" fill="none"/>
+        <circle cx="290" cy="220" r="3.5" fill="#b53333" stroke="none"/>
+        <text x="248" y="242" font-family="system-ui" font-size="9" fill="#b53333">the flood</text>
+        <text x="240" y="256" font-family="system-ui" font-size="8.5" fill="#b53333">why it means resilience</text>
+        <path d="M256,148 C246,152 240,158 238,166" stroke="#87867f" stroke-width=".8" stroke-dasharray="2 3" fill="none"/>
+        <text x="244" y="86" font-family="Georgia" font-style="italic" font-size="10.5" fill="#141413">in no model,</text>
+        <text x="244" y="100" font-family="Georgia" font-style="italic" font-size="10.5" fill="#141413">only in memory</text>
+      </svg><span class="num" aria-hidden="true">XII</span></span>
+        <h3>The AI-Native Family</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">The recipe survives the machine. The flood that gave the ritual its meaning does not — it lives in no dataset, only in the family. The machine preserves information; the family preserves meaning.</p>
+        <span class="foot"><span class="who">Jaya Mahajanam</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+      <a class="tile" href="book.html#ch14" style="--ch:#b8863b">
+        <span class="art"><svg viewBox="0 0 380 300" role="img" aria-label="Conceptual diagram: a sparse lattice in which only three nodes are lit, representing expertise as privilege, giving way to an evenly lit field in which every node carries intelligence as a common utility">
+        <g stroke="#e8e6dc" stroke-width=".8">
+          <path d="M24,80 H166 M24,124 H166 M24,168 H166 M24,212 H166"/>
+          <path d="M24,80 V212 M60,80 V212 M96,80 V212 M132,80 V212 M166,80 V212"/>
+        </g>
+        <g fill="#e8e6dc"><circle cx="24" cy="80" r="2.6"/><circle cx="96" cy="80" r="2.6"/><circle cx="132" cy="80" r="2.6"/><circle cx="60" cy="124" r="2.6"/><circle cx="132" cy="124" r="2.6"/><circle cx="166" cy="124" r="2.6"/><circle cx="24" cy="168" r="2.6"/><circle cx="96" cy="168" r="2.6"/><circle cx="166" cy="168" r="2.6"/><circle cx="60" cy="212" r="2.6"/><circle cx="132" cy="212" r="2.6"/><circle cx="166" cy="80" r="2.6"/><circle cx="24" cy="124" r="2.6"/><circle cx="60" cy="80" r="2.6"/><circle cx="96" cy="124" r="2.6"/><circle cx="60" cy="168" r="2.6"/><circle cx="132" cy="168" r="2.6"/><circle cx="24" cy="212" r="2.6"/><circle cx="96" cy="212" r="2.6"/><circle cx="166" cy="212" r="2.6"/></g>
+        <g fill="#b8863b"><circle cx="60" cy="124" r="4.6"/><circle cx="132" cy="80" r="4.6"/><circle cx="96" cy="212" r="4.6"/></g>
+        <text x="24" y="66" font-family="system-ui" font-size="9" fill="#87867f">expertise as privilege</text>
+        <text x="24" y="236" font-family="system-ui" font-size="8.5" fill="#87867f">a few nodes lit</text>
+        <text x="182" y="150" font-family="system-ui" font-size="14" fill="#87867f">&rarr;</text>
+        <g stroke="#b8863b" stroke-width=".8" opacity=".55">
+          <path d="M212,80 H354 M212,124 H354 M212,168 H354 M212,212 H354"/>
+          <path d="M212,80 V212 M248,80 V212 M284,80 V212 M320,80 V212 M354,80 V212"/>
+        </g>
+        <g fill="#b8863b"><circle cx="212" cy="80" r="4.2"/><circle cx="248" cy="80" r="4.2"/><circle cx="284" cy="80" r="4.2"/><circle cx="320" cy="80" r="4.2"/><circle cx="354" cy="80" r="4.2"/><circle cx="212" cy="124" r="4.2"/><circle cx="248" cy="124" r="4.2"/><circle cx="284" cy="124" r="4.2"/><circle cx="320" cy="124" r="4.2"/><circle cx="354" cy="124" r="4.2"/><circle cx="212" cy="168" r="4.2"/><circle cx="248" cy="168" r="4.2"/><circle cx="284" cy="168" r="4.2"/><circle cx="320" cy="168" r="4.2"/><circle cx="354" cy="168" r="4.2"/><circle cx="212" cy="212" r="4.2"/><circle cx="248" cy="212" r="4.2"/><circle cx="284" cy="212" r="4.2"/><circle cx="320" cy="212" r="4.2"/><circle cx="354" cy="212" r="4.2"/></g>
+        <text x="212" y="66" font-family="system-ui" font-size="9" fill="#b8863b">intelligence as utility</text>
+        <text x="212" y="236" font-family="system-ui" font-size="8.5" fill="#87867f">every node carries current</text>
+        <text x="212" y="256" font-family="system-ui" font-size="8" fill="#b53333">the unconnected remain unlit</text>
+        <text x="24" y="284" font-family="Georgia" font-style="italic" font-size="10.5" fill="#141413">an amplifier, not a successor</text>
+      </svg><span class="num" aria-hidden="true">XIV</span></span>
+        <h3>The Age of Cognitive Abundance</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hook">The Final Wave will not be defined by the chase for AGI, but by intelligence becoming a common utility — like electricity. The one chapter here that argues for hope.</p>
+        <span class="foot"><span class="who">Meenal Ashta</span><span class="go">read &amp; listen &rarr;</span></span>
+      </a>
+    </div>
+  </section>
 </main>
-<footer>Gate-1 proposals · <em>GenAI CollaBuc: The Final Wave</em> (Book 3) · <a href="https://github.com/sanjaygupta-professional/final-wave-abstracts">source repository</a></footer>
+
+<section class="closer">
+  <h2>Fourteen claims, not fourteen predictions</h2>
+  <p>Each chapter states a dated, falsifiable anchor and the conditions that would disconfirm it. That is the point: a future written carefully enough to be proven wrong is worth more than one written safely enough to never be tested. Read them as invitations to disagree.</p>
+  <a class="cta" href="book.html">Open the book &rarr;</a>
+</section>
+
+<footer>
+  <em>GenAI CollaBuc: The Final Wave</em> (Book 3) &middot; Gate-1 proposals, July 2026 &middot;
+  <a href="https://github.com/sanjaygupta-professional/final-wave-abstracts">source repository</a>
+</footer>
+
+<script>
+(function(){
+  var p = document.querySelector('.player'); if(!p) return;
+  var a = new Audio(p.dataset.src), btn = p.querySelector('button'),
+      bar = p.querySelector('.bar'), fill = p.querySelector('.fill'), t = p.querySelector('time');
+  function fmt(s){ s = Math.floor(s||0); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+  btn.addEventListener('click', function(){
+    if(a.paused){ a.play(); btn.innerHTML='&#10073;&#10073;'; }
+    else { a.pause(); btn.innerHTML='&#9654;'; }
+  });
+  a.addEventListener('timeupdate', function(){
+    fill.style.width = (a.currentTime / (a.duration||1) * 100) + '%';
+    t.textContent = fmt(a.currentTime);
+  });
+  a.addEventListener('loadedmetadata', function(){ t.textContent = fmt(a.duration); });
+  a.addEventListener('ended', function(){ btn.innerHTML='&#9654;'; fill.style.width='0'; });
+  bar.addEventListener('click', function(e){
+    var r = bar.getBoundingClientRect();
+    if(a.duration) a.currentTime = (e.clientX - r.left) / r.width * a.duration;
+  });
+})();
+</script>
 </body>
 </html>
